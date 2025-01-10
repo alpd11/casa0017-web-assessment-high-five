@@ -26,12 +26,13 @@ body {
  * Header
  */
 
-h3 {
+a.bigheader {
     font-family: 'Playwrite AU SA', sans-serif;
     font-size: 3rem;
     color: #f2e3e3;
     font-weight: bold;
     margin-left: 1rem;
+    text-decoration: none;
     /* Adjust the left margin appropriately */
 }
 

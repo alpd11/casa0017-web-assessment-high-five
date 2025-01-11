@@ -62,6 +62,35 @@
 
             <h1 id="analyse1">Real-time Map</h1>
 
+<<<<<<< Updated upstream
+=======
+            <div class="row">
+                <div class="col">
+                    <div id="map" style="height: 600px; width: 70%; border: 1px solid #ccc;">
+                        <!-- Google map will be here -->
+                    </div>
+                </div>
+            </div>
+            <!-- <h1 id="analyse1">Real-time Map</h1> -->
+
+            <!-- 添加 iframe 用于嵌入 CycleStreets 地图 -->
+            <!-- <div class="row">
+                <div class="col-12">
+                    <iframe 
+                        src="https://bikedata.cyclestreets.net/collisions/embed/#17.44/51.511394/-0.10477/opencyclemap" 
+                        width="100%" 
+                        height="650" 
+                        title="CycleStreets Bikedata map" 
+                        frameborder="0">
+                    </iframe>
+                </div>
+            </div> -->
+            <h2>CycleStreets collisions data</h2>
+            <ul id="collisionsList" style="text-align:left;">
+                <!-- JS 会在这里插入每条collision -->
+            </ul>
+
+>>>>>>> Stashed changes
             <h1 id="analyse2">Detail Information</h1>
             <div class="row">
                 <div class="col">
@@ -82,7 +111,6 @@
                 <div class="chart-container">
                     <canvas id="lineChart"></canvas>
                 </div>
-
                 <div class="datepicker">
                     <label for="datePicker1">Start Date:</label>
                     <input type="date" id="startPicker11" name="datePicker11">
@@ -158,6 +186,8 @@
         </footer>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

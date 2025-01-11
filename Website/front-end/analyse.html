@@ -19,7 +19,6 @@
     <!-- chart -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script src="Website/back-end/analysis.js"></script>
 
     <style>
         .bd-placeholder-img {
@@ -43,6 +42,8 @@
 
     <!-- javascript -->
     <script src="./js/chart.js"></script>
+    <script src="Website/back-end/analysis.js"></script>
+
 </head>
 
 <body class="d-flex text-center text-white bg-dark">
@@ -63,6 +64,14 @@
 
 
             <h1 id="analyse1">Real-time Map</h1>
+
+            <div class="row">
+                <div class="col">
+                    <div id="map" style="height: 600px; width: 70%; border: 1px solid #ccc;">
+                        <!-- Google map will be here -->
+                    </div>
+                </div>
+            </div>
 
             <h1 id="analyse2">Detail Information</h1>
             <div class="row">
@@ -159,6 +168,8 @@
             </ul>
         </footer>
     </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUVGuM4L7zwNhBWkuIg8XLJr7QgclERAg&libraries=places&callback=initMap&v=weekly"></script>
+    <script src="./js/map.js"></script>
 
 </body>
 

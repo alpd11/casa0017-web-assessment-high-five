@@ -5,7 +5,6 @@ const axios = require('axios');
 const dotenv = require('dotenv');
 dotenv.config();
 const cycleStreetsApiKey = process.env.CYCLESTREETS_API_KEY;
-
 const app = express();
 const port = 3000; // 你想让服务器跑在3000端口
 
@@ -24,8 +23,7 @@ app.get('/api/collisions', async (req, res) => {
     //    例如前端访问 /api/collisions?bbox=0.1252,52.1979,0.1302,52.1999&limit=3
     const { bbox, boundary, casualtiesinclude, limit } = req.query;
 
-    // B. 构造CycleStreets的请求URL
-    //    参考文档: https://api.cyclestreets.net/v2/collisions.locations
+
     let baseUrl = `https://api.cyclestreets.net/v2/collisions.locations?key=${cycleStreetsApiKey}&`;
 
     if (!bbox && !boundary) {

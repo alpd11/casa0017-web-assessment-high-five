@@ -1,33 +1,34 @@
 let chartInstance; // To store the Chart.js instance for updates
 
-// Function to fetch collision data based on dates
-async function fetchCollisionData(startDate, endDate) {
-    const apiKey = '655a7d85703df57d'; // Replace with your actual API key
-    const url = `https://www.cyclestreets.net/api/v2/collisions.locations?key=${apiKey}&bbox=-0.5,51.28,0.3,51.68&zoom=12`;
+// Function to load and parse the CSV file
+async function loadCSV() {
+    const response = await fetch('london_weather_collisions_2013_2023.csv');
+    const text = await response.text();
 
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
+    const rows = text.split('\n').map(row => row.split(','));
+    const headers = rows[0]; // First row contains headers
+    const data = rows.slice(1).map(row => {
+        const entry = {};
+        headers.forEach((header, index) => {
+            entry[header] = row[index];
+        });
+        return entry;
+    });
+    return data;
+}
 
-        if (data && data.features) {
-            // Filter features by date range
-            return data.features.filter(feature => {
-                const collisionDate = new Date(feature.properties.collision_date);
-                return collisionDate >= new Date(startDate) && collisionDate <= new Date(endDate);
-            });
-        } else {
-            throw new Error('Invalid data format from API');
-        }
-    } catch (error) {
-        console.error('Error fetching collision data:', error);
-        return [];
-    }
+// Function to filter data by date range
+function filterDataByDate(data, startDate, endDate) {
+    return data.filter(entry => {
+        const collisionDate = new Date(entry.date); // Adjust the header name for the date column
+        return collisionDate >= new Date(startDate) && collisionDate <= new Date(endDate);
+    });
 }
 
 // Function to process collision data
-function processCollisionData(features) {
-    const collisionCounts = features.reduce((acc, feature) => {
-        const severity = feature.properties.collision_severity;
+function processCollisionData(filteredData) {
+    const collisionCounts = filteredData.reduce((acc, entry) => {
+        const severity = entry.severity; // Adjust the header name for the severity column
         acc[severity] = (acc[severity] || 0) + 1;
         return acc;
     }, {});
@@ -39,10 +40,7 @@ function processCollisionData(features) {
 }
 
 // Function to create/update the chart
-async function updateChart(startDate, endDate) {
-    const features = await fetchCollisionData(startDate, endDate);
-    const { labels, counts } = processCollisionData(features);
-
+function updateChart(labels, counts) {
     const ctx = document.getElementById('lineChart').getContext('2d');
 
     if (counts.length === 0) {
@@ -91,15 +89,19 @@ async function updateChart(startDate, endDate) {
 }
 
 // Event listeners for date pickers
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const startPicker = document.getElementById('startPicker11');
     const endPicker = document.getElementById('endPicker22');
+    const data = await loadCSV(); // Load CSV data
 
     const updateChartIfDatesValid = () => {
         const startDate = startPicker.value;
         const endDate = endPicker.value;
+
         if (startDate && endDate && new Date(startDate) <= new Date(endDate)) {
-            updateChart(startDate, endDate);
+            const filteredData = filterDataByDate(data, startDate, endDate);
+            const { labels, counts } = processCollisionData(filteredData);
+            updateChart(labels, counts);
         } else {
             document.getElementById('chartError').textContent = 'Invalid date range selected.';
             document.getElementById('chartError').style.display = 'block';
@@ -109,4 +111,3 @@ document.addEventListener('DOMContentLoaded', () => {
     startPicker.addEventListener('change', updateChartIfDatesValid);
     endPicker.addEventListener('change', updateChartIfDatesValid);
 });
- 

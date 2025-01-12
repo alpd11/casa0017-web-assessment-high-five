@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', function() {
+  // Gets the context of the chart container
+  const ctx = document.getElementById('myChart').getContext('2d');
+
 // Function to load CSV data
 function loadCSV(filePath, callback) {
   Papa.parse(filePath, {
@@ -104,19 +108,29 @@ function updateChart() {
 
 // Main function to load data and initialize the chart
 function main() {
-  const filePath = "Website\front-end\data2.csv"; // Replace with the correct relative path to your CSV file
-  loadCSV(filePath, (data) => {
-    allData = data; // Save data globally for later use
-    updateChart(); // Initialize chart
-  });
+  const filePath = "./data2.csv"; 
+  const defaultStartDate = "2013/01/01"; // Default start date
+  const defaultEndDate = "2013/01/31";   // Default End Date
 
-  // Attach event listeners to the date pickers
-  document.getElementById("startPicker11").addEventListener("change", updateChart);
-  document.getElementById("endPicker22").addEventListener("change", updateChart);
+  loadCSV(filePath, (data) => {
+    // Filter data using default time intervals
+    const filteredData = filterDataByDate(data, defaultStartDate, defaultEndDate);
+    const averages = calculateAverageCollisions(filteredData);
+
+    // Render default chart
+    renderBarChart(averages);
+
+    // Add event listener for date selection button
+    const updateButton = document.getElementById("updateChartBtn");
+    updateButton.addEventListener("click", () => {
+      const startDate = document.getElementById("startPicker11").value;
+      const endDate = document.getElementById("endPicker22").value;
+      const newFilteredData = filterDataByDate(data, startDate, endDate);
+      const newAverages = calculateAverageCollisions(newFilteredData);
+      renderBarChart(newAverages);
+    });
+  });
 }
 
-// Global variable to store the loaded data
-let allData = [];
-
 // Execute main function
-main();
+main();})

@@ -40,7 +40,8 @@ To explore the scenarios in which users might interact with the website, storybo
 
 The first scenario demonstrates how users discover the website through a search engine. Users enter keywords such as "the relationship between cycling and weather" and are directed to the homepage of the One Biker website. This scenario highlights how users find the website, ensuring that it is easily accessible.
  
-Figure1_1_scenario1
+![Figure1_1_scenario1](UI design\Group 1.jpg "Figure1_1_scenario1")
+
 
 The second scenario describes the process of users exploring the homepage. They scroll through introductory sections to learn about the website’s goals and features. Additionally, users may use the navigation bar to visit other pages, such as the “Analyse” or “About” pages.
  

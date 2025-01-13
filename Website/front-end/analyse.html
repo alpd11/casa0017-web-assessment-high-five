@@ -1,14 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analyse</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
-
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Font -->
@@ -16,36 +14,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+SA:wght@100..400&display=swap" rel="stylesheet">
 
-    <!-- chart -->
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
+    <!-- Papa Parse -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
-
-    <!-- Custom styles for this template -->
+    <!-- Custom CSS -->
     <link href="./css/cover.css" rel="stylesheet">
     <link href="./css/layout.css" rel="stylesheet">
-
-    <!-- javascript -->
-    <script src="./js/chart.js"></script>
 </head>
 
-<body class="d-flex text-center text-white bg-dark">
-
-    <div class="cover-container d-flex w-100 m-4 p-3 flex-column">
+<body class="d-flex flex-column text-white bg-dark">
+    <div class="container py-4">
+        <!-- Header -->
         <header class="mb-auto">
             <div class="d-flex align-items-center justify-content-between border-bottom pb-2">
                 <a class="bigheader" href="homepage.html">One Biker</a>
@@ -55,136 +37,98 @@
                     <a class="nav-link" href="about.html">About</a>
                 </nav>
             </div>
+            
         </header>
-
+        <!-- Main Content -->
         <main class="px4">
-
-
-            <h1 id="analyse1">Real-time Map</h1>
-
-            <div class="row">
-                <div class="col">
-                    <div id="map" style="height: 600px; width: 70%; border: 1px solid #ccc;">
-                        <!-- Google map will be here -->
-                    </div>
-                </div>
-            </div>
-            <!-- <h1 id="analyse1">Real-time Map</h1> -->
-
-            <!-- 添加 iframe 用于嵌入 CycleStreets 地图 -->
-            <div class="row">
-                <div class="col-12">
-                    <iframe 
-                        src="https://bikedata.cyclestreets.net/collisions/embed/#17.44/51.511394/-0.10477/opencyclemap" 
-                        width="100%" 
-                        height="650" 
-                        title="CycleStreets Bikedata map" 
-                        frameborder="0">
+            <section class="mb-3">
+                <h2>Real-time Map</h2>
+                <div>
+                    <iframe src="https://bikedata.cyclestreets.net/collisions/embed/#17/51.51137/-0.10498/opencyclemap"
+                     width="100%" 
+                     height="450" 
+                     title="CycleStreets Bikedata map" frameborder="0">
                     </iframe>
                 </div>
-            </div>
-            <h2>CycleStreets collisions data</h2>
-            <ul id="collisionsList" style="text-align:left;">
-                <!-- JS 会在这里插入每条collision -->
-            </ul>
+            </section>
 
-            <h1 id="analyse2">Detail Information</h1>
-            <div class="row">
-                <div class="col">
-                    <p>Name :</p>
-                    <p>Post Code :</p>
+            <!-- Detail Information Section -->
+            <section class="mb-5">
+                <h2>Detail Information</h2>
+                <!-- New -->
+                <div class="row mb-3">
+                    <div class="col-md-8 d-flex align-items-center">
+                      <label for="detailDatePicker" class="me-2">Select Date:</label>
+                      <input type="date" id="detailDatePicker" class="form-control me-2">
+                      <button id="updateDetailBtn" class="btn btn-primary">Update</button>
+                    </div>
+                  </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <p><strong>Weather:</strong> <span id="weather">N/A</span></p>
+                        <p><strong>Temperature:</strong> <span id="temperature">N/A</span></p>
+                        <p><strong>Wind Speed:</strong> <span id="windSpeed">N/A</span></p>
+                    </div>
+                    <div class="col-md-4">
+                        <p><strong>Number of collisions:</strong> <span id="bikeCount">N/A</span></p>
+                    </div>
                 </div>
-                <div class="col">
-                    <p>Weather :</p>
-                    <p>Temperature :</p>
-                    <p>Wind Speed :</p>
+            </section>
+
+            <!-- Chart Section -->
+            <section class="mb-5">
+                <h2>Weather Impact Analysis</h2>
+                <div class="row">
+                    <div class="col-md-8">
+                        <canvas id="myChart" width="400" height="200"></canvas>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="datepicker">
+                            <label for="startPicker11">Start Date:</label>
+                            <input type="date" id="startPicker11" class="form-control mb-3" value="2013-01-01">
+
+                            <label for="endPicker22">End Date:</label>
+                            <input type="date" id="endPicker22" class="form-control mb-3" value="2013-01-31">
+
+                            <button id="updateChartBtn" class="btn btn-primary">Update Chart</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="col">
-                    <p>Number of Bicycles :</p>
-                </div>
-            </div>
+            </section>
 
-            <div class="analysecontainer">
-                <div class="chart-container">
-                    <canvas id="lineChart"></canvas>
-                </div>
-                <div class="datepicker">
-                    <label for="datePicker1">Start Date:</label>
-                    <input type="date" id="startPicker11" name="datePicker11">
-
-                    <label for="datePicker2">End Date:</label>
-                    <input type="date" id="endPicker22" name="datePicker22">
-                </div>
-            </div>
-
-            <h1 id="analyse2">Cycling Suggestion</h1>
-            <p class="leadhomepage">Our project aims to analyze the impact of weather conditions on bicycle traffic trends
-                across various UK regions from 2010 to 2020.
-                Our group will combine the UK Met Office Weather Data API with the UK Department for Transport Bicycle
-                Traffic Data to analyze this issue. This website will present how weather factors,
-                such as temperature, precipitation, and wind speed, influence cycling behavior, therefore providing
-                valuable information for urban planning, public health, and sustainability policy initiatives.</p>
-
-
-
+            <!-- Cycling Suggestion Section -->
+            <section>
+                <h2>Cycling Suggestion</h2>
+                <p>
+                    Our project analyzes how weather conditions impact bicycle traffic trends across the UK. Using data
+                    from various reliable sources, this platform offers insights into the relationships between weather
+                    factors and cycling behavior, providing valuable information for urban planning and public health.
+                </p>
+            </section>
         </main>
 
-    </div>
-
-
-
-
-    <!-- footer -->
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <symbol id="bootstrap" viewBox="0 0 118 94">
-            <title>Bootstrap</title>
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z">
-            </path>
-        </symbol>
-        <symbol id="facebook" viewBox="0 0 16 16">
-            <path
-                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-        </symbol>
-        <symbol id="instagram" viewBox="0 0 16 16">
-            <path
-                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
-        </symbol>
-        <symbol id="twitter" viewBox="0 0 16 16">
-            <path
-                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
-        </symbol>
-    </svg>
-
-    <div class="footer"></div>
-
-    <div class="container">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <div class="col-md-4 d-flex align-items-center">
-                <a href="#" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                    <svg class="bi" width="30" height="24">
-                        <use xlink:href="#bootstrap" />
-                    </svg>
-                </a>
-                <span class="text-muted">&copy; 2021 Company, Inc</span>
+        <!-- Footer -->
+        <footer class="mt-auto border-top pt-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="text-muted">&copy; 2025 One Biker. All rights reserved.</span>
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-muted" href="https://tfl.gov.uk/modes/cycling/routes-and-maps">TfL</a></li>
+                    <li class="ms-3"><a class="text-muted" href="https://www.sustrans.org.uk/national-cycle-network/">Sustrans</a></li>
+                    <li class="ms-3"><a class="text-muted" href="https://map.bikecitizens.net/gb-london">Bike Citizens</a></li>
+                </ul>
             </div>
-
-            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                <li class="ms-3"><a class="text-muted" href="https://tfl.gov.uk/modes/cycling/routes-and-maps"><svg class="bi" width="24" height="24">
-                            <use xlink:href="#twitter" />
-                        </svg></a></li>
-                <li class="ms-3"><a class="text-muted" href="https://www.sustrans.org.uk/national-cycle-network/"><svg class="bi" width="24" height="24">
-                            <use xlink:href="#instagram" />
-                        </svg></a></li>
-                <li class="ms-3"><a class="text-muted" href="https://map.bikecitizens.net/gb-london#/!/1/1/-,-/-,-"><svg class="bi" width="24" height="24">
-                            <use xlink:href="#facebook" />
-                        </svg></a></li>
-            </ul>
         </footer>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="./js/script.js"></script>
+    <!-- Google Maps API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="./js/map.js"></script>
+    <script src="./js/chart.js"></script>
+    <!-- New -->
+    <script src="./js/detailInfo.js"></script>
 </body>
 
 </html>

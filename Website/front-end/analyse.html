@@ -44,9 +44,14 @@
             <!-- Real-time Map Section -->
             <section class="mb-5">
                 <h2>Real-time Map</h2>
-                <div id="map" style="height: 400px; width: 100%; border: 1px solid #ccc;">
+                <!-- <div id="map" style="height: 400px; width: 100%; border: 1px solid #ccc;">
                     <!-- Google Map will be initialized here -->
-                </div>
+                <!-- </div> -->
+                 <div>
+                    <iframe src="https://bikedata.cyclestreets.net/embed/#15.08/51.51262/-0.10835/opencyclemap"
+                     width="100%" height="650" title="CycleStreets Bikedata map" frameborder="0"></iframe>
+                 </div> 
+                 
             </section>
 
             <!-- Detail Information Section -->
@@ -156,7 +161,7 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
 
     <!-- Custom JavaScript -->
-    <script src="./js/map.js"></script>
+    <!-- <script src="./js/map.js"></script> -->
     <script src="./js/chart.js"></script>
     <!-- New -->
     <script src="./js/detailInfo.js"></script>

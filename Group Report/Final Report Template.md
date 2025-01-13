@@ -89,9 +89,9 @@ Interactive elements, including buttons, dropdown menus, and sliders, were desig
 
 By combining an effective color scheme, clear typography, intuitive interactions, and responsive design, the UI design of One Biker delivers a cohesive and user-friendly interface.
  
- <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Homepage_v1.png" alt="Figure3_UI design_v1" width="300" /> <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Analyse_v1.png" alt="Figure3_UI design_v1" width="300" /> <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/About_v1.png" alt="Figure3_UI design_v1" width="300" />
+ <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Homepage_v1.png" alt="Figure3_UI design_v1" width="200" height="520"/> <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Analyse_v1.png" alt="Figure3_UI design_v1" width="300" /> <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/About_v1.png" alt="Figure3_UI design_v1" width="300" />
    
-<img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Homepage_v2.png" alt="Figure3_UI design_v1" width="300" /> <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Analyse_v2.png" alt="Figure3_UI design_v1" width="300" /> <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/About_v2.png" alt="Figure3_UI design_v1" width="300" />
+<img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Homepage_v2.png" alt="Figure3_UI design_v1" width="200" height="520" /> <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Analyse_v2.png" alt="Figure3_UI design_v1" width="300" /> <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/About_v2.png" alt="Figure3_UI design_v1" width="300" />
 
 ## Development and Interactivity of site
 
@@ -101,7 +101,7 @@ By combining an effective color scheme, clear typography, intuitive interactions
 
 ##### (1) Three html files: 
 
-homepage.html: 
+**homepage.html** 
 
 As a landing interface, it mainly introduces the main content and functions of the website.  
  
@@ -116,14 +116,15 @@ In addition, through <div id="myCarousel" class="carousel slide" data-bs-ride="c
  <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/imgs/front-homepage.jpeg" alt="Figure2_UX design" width="300" />
 
 
-analyse.html: 
+**analyse.html**
 
 This is the core interface of this website, used for interactive data analysis of the number of bicycle accidents and weather factors.  
  
 It introduces a map component, a presentation of content retrieved from a map, a bar chart, and two date filters. These components not only enhance the visual appearance of the page, but also enable users to analyze, and explore the connection between bicycle traffic data and weather changes more intuitively. 
 
+ <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/imgs/analyse.png" alt="Figure2_UX design" width="300" />
 
-about.html: 
+**about.html**
 A page that briefly describes our team and the goals of the project. 
 
  <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/imgs/front-about.jpeg" alt="Figure2_UX design" width="300" />
@@ -242,7 +243,9 @@ Besides, while the API provided a reliable dataset, its latest available data wa
     const casualtiesinclude = 'cyclist'; 
     const limit = 2000; 
  
-            FigureX _Data washing    
+ <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/imgs/collisions.png" alt=" FigureX _Data washing" width="300"/>
+             
+           
  
 ### 5.3 Data handling 
 
@@ -293,9 +296,10 @@ fs.createReadStream(path.join(__dirname, weatherFile))
  
 Afterward, the collision data and weather data were merged by matching dates. 
 Therefore, this enriched dataset helps bridge the analyzing the relationship between weather conditions and cycling collisions, providing valuable insights into patterns and trends (An example of the dataset is shown in the figure below). 
-            
-             FigureX _Data handling 
 
+ <img src=" https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/imgs/weather_collisions.png" alt=" FigureX _Data handling " width="300"/>            
+             
+            
 ## Data visualisations
 
 Data visualisation is an indispensable component of this website, as a well-designed visualisation page can leave a lasting impression on users. The visualisation features of this platform are designed to effectively and intuitively present the relationship between weather conditions and cycling accidents. By implementing a variety of techniques, the website ensures that the data is displayed in a clear, interactive, and easily accessible manner.

@@ -82,3 +82,15 @@ main > p#leadabout {
 .text-container p {
   text-align: left; /* Set the text to left justification */
 }
+
+div.containerRelation h1{
+  text-align: center;
+  color: #a3e225;
+  margin: 10rem 0 2rem 0;
+}
+
+div.containerSuggestion h1{
+  text-align: center;
+  color: #a3e225;
+  margin: 2rem;
+}

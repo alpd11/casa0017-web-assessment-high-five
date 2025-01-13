@@ -40,29 +40,30 @@ To explore the scenarios in which users might interact with the website, storybo
 
 The first scenario demonstrates how users discover the website through a search engine. Users enter keywords such as "the relationship between cycling and weather" and are directed to the homepage of the One Biker website. This scenario highlights how users find the website, ensuring that it is easily accessible.
  
-![Figure1_1_scenario1](UI design\Group 1.jpg "Figure1_1_scenario1")
+<img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Group%201.jpg" alt="Figure1_1_scenario1" width="300" />
 
 
 The second scenario describes the process of users exploring the homepage. They scroll through introductory sections to learn about the website’s goals and features. Additionally, users may use the navigation bar to visit other pages, such as the “Analyse” or “About” pages.
  
-Figure1_2_scenario2
+<img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Group%202.jpg" alt="Figure1_2_scenario2" width="300" />
 
 The third scenario focuses on the “About” page, where users can learn about the research methods and data sources that underpin the website. This section enhances the website’s credibility and fosters user confidence in the insights provided by the platform.
  
-Figure1_3_scenario3
+<img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Group%203.jpg" alt="Figure1_3_scenario3" width="300" />
 
 The fourth scenario centers on the “Analyse” page. Here, users interact with an interactive map, clicking on specific locations to view data on weather conditions, accident statistics, and other relevant factors. Moreover, users can customize the time range to generate bar charts that visualize the average number of accidents under varying weather conditions.
  
-Figure1_4_scenario4
+<img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Group%204.jpg" alt="Figure1_4_scenario4" width="300" />
 
 The final scenario simulates a real-world use case in practical settings, completing the logical flow and ensuring the contextual relevance of the scenarios.
  
-Figure1_5_scenario5
+<img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Group%205.jpg" alt="Figure1_5_scenario5" width="300" />
 
 Through these scenarios, the storyboard clearly defines the logical flow of user interactions and lays the foundation for designing a seamless and intuitive user experience.
 
  
-Figure1_5_storyboard
+<img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Story%20boarding.png" alt="Figure1_5_Story boarding" width="300" />
+
 
 ### 3.2 UX design
 
@@ -74,8 +75,7 @@ The interactive map on the Analyse page provides dynamic, context-aware feedback
 Finally, the website offers personalized travel recommendations based on weather data. This tailored feedback enhances practicality and fosters user trust in the platform.
 By optimizing navigation, interactive features, data clarity, and personalization, the UX design of One Biker ensures a seamless and valuable user experience.
 
- 
-Figure2_UX design
+ <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/UX.png" alt="Figure2_UX design" width="300" />
 
 ### 3.3 UI design
 
@@ -88,8 +88,10 @@ Typography and layout prioritize clarity and readability. Artistic fonts highlig
 Interactive elements, including buttons, dropdown menus, and sliders, were designed for intuitiveness and responsiveness. Bold buttons draw attention, and dropdown menus enable easy data filtering on the Analyse page, aligning with user expectations to improve usability.
 
 By combining an effective color scheme, clear typography, intuitive interactions, and responsive design, the UI design of One Biker delivers a cohesive and user-friendly interface.
+ 
+ <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Homepage_v1.png" alt="Figure3_UI design_v1" width="200" height="520"/> <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Analyse_v1.png" alt="Figure3_UI design_v1" width="300" /> <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/About_v1.png" alt="Figure3_UI design_v1" width="300" />
    
-Figure3_UI design_v1
+<img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Homepage_v2.png" alt="Figure3_UI design_v1" width="200" height="520" /> <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/Analyse_v2.png" alt="Figure3_UI design_v1" width="300" /> <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/UI%20design/About_v2.png" alt="Figure3_UI design_v1" width="300" />
 
 ## Development and Interactivity of site
 
@@ -99,7 +101,8 @@ Figure3_UI design_v1
 
 ##### (1) Three html files: 
 
-homepage.html: 
+**homepage.html** 
+
 As a landing interface, it mainly introduces the main content and functions of the website.  
  
 The Bootstrap framework was used to build the layout of the homepage.html, which references the Bootstrap core CSS file and Bundle with Popper file, to facilitate the use of its predefined styles and interaction elements. Moreover, the homepage links to multiple CSS and JavaScript files, as well as the jQuery library. Google fonts are also linked to enrich the visual effects of the page. 
@@ -110,13 +113,22 @@ The homepage page is planned and laid out using multiple <div> containers. For e
  
 In addition, through <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">, the carousel component is added to the main body, and the autoplay and manual switching of pictures are realized. It is convenient for users to browse pictures of the core content of the website quickly. 
 
-analyse.html: 
+ <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/imgs/front-homepage.jpeg" alt="Figure2_UX design" width="300" />
+
+
+**analyse.html**
+
 This is the core interface of this website, used for interactive data analysis of the number of bicycle accidents and weather factors.  
  
 It introduces a map component, a presentation of content retrieved from a map, a bar chart, and two date filters. These components not only enhance the visual appearance of the page, but also enable users to analyze, and explore the connection between bicycle traffic data and weather changes more intuitively. 
- 
-about.html: 
+
+ <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/imgs/analyse.png" alt="Figure2_UX design" width="300" />
+
+**about.html**
 A page that briefly describes our team and the goals of the project. 
+
+ <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/imgs/front-about.jpeg" alt="Figure2_UX design" width="300" />
+ 
 
 ##### (2) css folder 
  
@@ -152,7 +164,14 @@ jQuery is used to add mouse hover, click, and leave logic over buttons and hyper
  
 ### 4.2 Interactivity of site 
 
-The navigation bar and footer of each page have various jump logic, providing users with rich page resources.navigation bar and footer图 
+The navigation bar and footer of each page have various jump logic, providing users with rich page resources.
+
+ <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/imgs/header.png" alt="Figure2_UX design" width="300" />
+ 
+ <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/imgs/footer.png" alt="Figure2_UX design" width="300" />
+
+  <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/imgs/footer2.png" alt="Figure2_UX design" width="300" />
+
 
 In addition, on the Homepage, you can click and browse the carousel. Then after browsing the "What We Provide?” section, users can directly click the More Info button to jump to the analyse page and explore the bicycle route and the influence of weather on cycling. 
 
@@ -224,7 +243,9 @@ Besides, while the API provided a reliable dataset, its latest available data wa
     const casualtiesinclude = 'cyclist'; 
     const limit = 2000; 
  
-            FigureX _Data washing    
+ <img src="https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/imgs/collisions.png" alt=" FigureX _Data washing" width="300"/>
+             
+           
  
 ### 5.3 Data handling 
 
@@ -275,9 +296,10 @@ fs.createReadStream(path.join(__dirname, weatherFile))
  
 Afterward, the collision data and weather data were merged by matching dates. 
 Therefore, this enriched dataset helps bridge the analyzing the relationship between weather conditions and cycling collisions, providing valuable insights into patterns and trends (An example of the dataset is shown in the figure below). 
-            
-             FigureX _Data handling 
 
+ <img src=" https://github.com/alpd11/casa0017-web-assessment-high-five/blob/main/imgs/weather_collisions.png" alt=" FigureX _Data handling " width="300"/>            
+             
+            
 ## Data visualisations
 
 Data visualisation is an indispensable component of this website, as a well-designed visualisation page can leave a lasting impression on users. The visualisation features of this platform are designed to effectively and intuitively present the relationship between weather conditions and cycling accidents. By implementing a variety of techniques, the website ensures that the data is displayed in a clear, interactive, and easily accessible manner.

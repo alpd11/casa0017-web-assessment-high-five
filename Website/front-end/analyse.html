@@ -50,18 +50,23 @@
             <!-- Detail Information Section -->
             <section class="mb-5">
                 <h2>Detail Information</h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <p><strong>Name:</strong> <span id="locationName">N/A</span></p>
-                        <p><strong>Post Code:</strong> <span id="postCode">N/A</span></p>
+                <!-- New -->
+                <div class="row mb-3">
+                    <div class="col-md-8 d-flex align-items-center">
+                      <label for="detailDatePicker" class="me-2">Select Date:</label>
+                      <input type="date" id="detailDatePicker" class="form-control me-2">
+                      <button id="updateDetailBtn" class="btn btn-primary">Update</button>
                     </div>
+                  </div>
+
+                <div class="row">
                     <div class="col-md-4">
                         <p><strong>Weather:</strong> <span id="weather">N/A</span></p>
                         <p><strong>Temperature:</strong> <span id="temperature">N/A</span></p>
                         <p><strong>Wind Speed:</strong> <span id="windSpeed">N/A</span></p>
                     </div>
                     <div class="col-md-4">
-                        <p><strong>Number of Bicycles:</strong> <span id="bikeCount">N/A</span></p>
+                        <p><strong>Number of collisions:</strong> <span id="bikeCount">N/A</span></p>
                     </div>
                 </div>
             </section>
@@ -76,10 +81,10 @@
                     <div class="col-md-4">
                         <div class="datepicker">
                             <label for="startPicker11">Start Date:</label>
-                            <input type="date" id="startPicker11" class="form-control mb-3">
+                            <input type="date" id="startPicker11" class="form-control mb-3" value="2013-01-01">
 
                             <label for="endPicker22">End Date:</label>
-                            <input type="date" id="endPicker22" class="form-control mb-3">
+                            <input type="date" id="endPicker22" class="form-control mb-3" value="2013-01-31">
 
                             <button id="updateChartBtn" class="btn btn-primary">Update Chart</button>
                         </div>
@@ -117,6 +122,8 @@
     <!-- Custom JavaScript -->
     <script src="./js/map.js"></script>
     <script src="./js/chart.js"></script>
+    <!-- New -->
+    <script src="./js/detailInfo.js"></script>
 </body>
 
 </html>

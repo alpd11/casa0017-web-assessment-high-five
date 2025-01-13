@@ -72,8 +72,8 @@ function renderBarChart(averages) {
         {
           label: "Average Collisions per Day",
           data: collisionData,
-          backgroundColor: "rgba(75, 192, 192, 0.2)",
-          borderColor: "rgba(75, 192, 192, 1)",
+          backgroundColor: "rgba(72, 156, 55, 0.79)",
+          borderColor: "rgb(249, 115, 193)",
           borderWidth: 1,
         },
       ],

@@ -1,28 +1,73 @@
-# CASA0017 Web Assessment ReadMe File
+# CASA0017 One Biker: Analyzing Weather Impacts on Cycling Collisions
 
-# DELETE THE LAST LINE AND REPLACE THIS LINE WITH YOUR WEBSITE NAME 
+## Project Overview
 
-This is the Final assessment template for CASA0017 - Please use this template and edit the relevant sections to personalise.
-This section has a short introduction to what the website is about and what research problem the site is solving.  Remeber this file showcases your website source code so use it to sell what you can do as a group or showcase in a future portfolio. 
+The **One Biker** project analyzes the impact of weather conditions on cycling collision trends in London from 2013 to 2023. By combining data from the CycleStreets API (collision data) and Open-Meteo API (weather data), the project examines how factors such as precipitation, temperature, and wind speed influence cycling safety. 
 
-## Use this README File 
+### Project Goals
 
-Use this section to show us what your Website is about.   Include a Screenshot to the Website in this README file, link to the various frameworks you've used.  If you want to show off your website you can add a Gif of you interacting with your site.   Emojis are also fun to include as well 😄
++ To investigate patterns between weather conditions and cycling collisions.
++ To develop an interactive web application that visualizes cycling collision trends and weather impacts.
++ To provide actionable insights for policymakers and urban planners.
 
-Look at some other Websites online in GitHub and see how they use the README File to showcase thier site.  Good examples are:
+## Key Features
 
-- https://github.com/smaranjitghose/awesome-portfolio-websites
-- https://github.com/gohugoio/hugo    
-- https://github.com/academicpages/academicpages.github.io
+### 1. Interactive Visualizations
 
-##  Replace the Tags on the side menu of GitHub
+Implemented using `chart.js`, and `detailInfo.js` to display  collision trends in any range of date and also detailed information by selecting date correspondingly.
 
-Put some tags in to make your site more searchable in GitHub
+### 2. Comprehensive Dataset
 
-## Include A Section That Tells Developers How To Install The App
+Data from the CycleStreets API (collision data) and Open-Meteo API (weather data) were merged.
 
-Include a section that gives intructions on how to install the app or run it in Docker.  What versions of the plugins are you assuming?  Maybe define a licence as well, this is good practise.
+### 3.  Responsive and User-Friendly Design
 
-##  Contact Details
++ **Intuitive Interface:  **A clean and responsive layout optimized for user navigation across the homepage, analysis page, and about page.
 
-Having Contact Details is also good as it shows people how to get in contact with you if they'd like to contribute to the app. 
++ **Responsive design:** The website uses the **Bootstrap** framework to ensure consistent performance across desktop, tablet, and mobile devices.
+
+### **4. Embedded Collision Map**
+
+- Integrates a CycleStreets map to visualize collision hotspots within London.
+- The map is embedded directly using an `<iframe>` for seamless interaction.
+
+
+
+## **Data Processing and Technology Stack**
+
+### **Data Processing**
+
+- **Data Sources**:
+
+  + **CycleStreets API**: Collision data for cyclists in London (2013–2023).
+
+  - **Open-Meteo API**: Weather data including temperature, precipitation, and wind speed.
+
+- **Processing Steps**:
+
+  - Retrieved collision data using Node.js scripts, parsed JSON responses, and converted them into `.csv` format for analysis.
+  - Merged collision and weather datasets into a unified file, adding a `weather` column (Sunny, Rainy, Cloudy, Snowy) based on predefined thresholds.
+  - Prepared structured datasets for front-end visualization, ensuring compatibility with `chart.js`.
+
+### **Technology Stack**
+
+- **Frontend**:
+  - HTML, CSS, JavaScript
+  - `chart.js` for creating dynamic bar and line charts.
+  - Embedded interactive maps using CycleStreets `<iframe>` functionality.
+- **Backend**:
+  - Node.js and Express.js for API integration and data preprocessing.
+  - Batch processing of API data and `.csv` file generation.
+- **Visualization Tools**:
+  - **Chart.js**: Used to display dynamic charts for collision and weather trends.
+  - **Bootstrap**: Ensures responsive layout and predefined UI components.
+  - Embedded CycleStreets map to show geographical collision data interactively.
+
+
+
+## Contributors
+## 贡献者
+
+<a href="https://github.com/alpd11/casa0017-web-assessment-high-five">
+  <img src="https://contrib.rocks/image?repo=alpd11/casa0017-web-assessment-high-five" />
+</a>
